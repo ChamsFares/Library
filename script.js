@@ -1,13 +1,26 @@
 const library = []
-function book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-book.prototype.toggleRead = function (){
-    this.read = !this.read;
+class book{
+    constructor(title, author, pages, read){
+        this._title = title;
+        this._author = author;
+        this._pages = pages;
+        this._read = read;
+    }
+    get title(){
+        return this._title;
+    }
+    get author(){
+        return this._author;
+    }
+    get pages(){
+        return this._pages;
+    }
+    get read(){
+        return this._read;
+    }
+    toggleRead(){
+        this._read = !this._read;
+    }
 }
 
 const exampleBooks = [
@@ -59,7 +72,6 @@ function removeBook(index){
 }
 
 function toggleRead(index){
-    console.log(library[index])
     library[index].toggleRead();
     displayLibrary();
 }
